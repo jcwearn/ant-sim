@@ -4,6 +4,7 @@ Jackson Wearn
 ###Description:
 A simple application that provides a visualization for ant tracking data
 ###Install:
+Both Node.js and npm must be installed for this application to work correctly
 ```
 git clone git@github.com:jcwearn/ant-sim.git
 cd ant-sim
