@@ -46,7 +46,7 @@ function renderFrame(csv) {
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      antsToDraw.forEach(function(row) {
+      antsToDraw.forEach(function(ant) {
         drawAnt(ant);
       });
 
