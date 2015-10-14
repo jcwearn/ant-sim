@@ -6,14 +6,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   CSVParser.parseFile('../ants.csv', function(err, data) {
     if(err) console.log(err);
-    if(data) {
-      data.forEach(function(row) {
-        console.log(row);
-      });
-    }
+    if(data) res.render('index', { csv: data });
   });
-
-  res.render('index', { title: 'Express' });
 
 });
 
