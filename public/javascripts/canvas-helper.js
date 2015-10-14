@@ -3,6 +3,9 @@ if (canvas.getContext){
   var ctx = canvas.getContext('2d');
 }
 
+var img = new Image();
+img.src = '../images/ant.png';
+
 var timestamp = 66;
 var nextRow = 0;
 
@@ -11,7 +14,6 @@ function draw(csv){
     renderFrame(csv.slice(nextRow));
   }, 33);
 }
-
 
 function renderFrame(csv) {
   var rowsToDraw = [];
@@ -32,10 +34,12 @@ function renderFrame(csv) {
       timestamp = timestamp_current;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       rowsToDraw.forEach(function(row) {
-        var x = row.x;
-        var y = row.y;
-        ctx.fillStyle = "#FF0000";
-        ctx.fillRect(x,y,10, 10);
+        ctx.save();
+        ctx.translate(row.x, row.y);
+        ctx.translate(8, 8);
+        ctx.rotate(row.angle);
+        ctx.drawImage(img, -8, -8);
+        ctx.restore();
       });
 
       break;
