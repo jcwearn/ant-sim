@@ -68,7 +68,6 @@ function drawAnt(ant) {
   var angle = ant.angle;
   ctx.save();
   ctx.translate(x, y);
-  ctx.translate(8, 8);
   ctx.rotate(angle);
   ctx.drawImage(img, -8, -8);
   ctx.restore();
