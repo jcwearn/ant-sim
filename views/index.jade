@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  script(type='text/javascript').
+    var csvData = !{JSON.stringify(csv)};
+  body(onload="draw(csvData);")
+    canvas(width='700' height='500')#ant-canvas
+    script(type='text/javascript', src='/javascripts/canvas-helper.js')
