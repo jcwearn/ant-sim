@@ -47,7 +47,7 @@ function renderFrame(csv) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       antsToDraw.forEach(function(ant) {
-        drawAnt(ant);
+        drawFrame(ant);
       });
 
       break;
@@ -55,12 +55,15 @@ function renderFrame(csv) {
   }
 }
 
-function drawAnt(ant) {
+function drawFrame(ant) {
   var x = ant.x;
   var y = ant.y;
   var angle = ant.angle;
-  var id = ant.id;
-  
+  drawAnt(x, y, angle);
+  updateAntTrail(ant);
+}
+
+function drawAnt(x, y, angle) {
   ctx.save();
   ctx.translate(x, y);
   ctx.translate(8, 8);
@@ -71,4 +74,57 @@ function drawAnt(ant) {
 
 function drawTrail() {
   
+}
+
+function updateAntTrail(ant) {
+  switch(ant.id) {
+  case 1:
+    if(antTrails.ant1.length > 19) 
+      antTrails.ant1.shift();
+    
+    antTrails.ant1.push({ x:x, y:y });      
+    break;
+  case 2:
+    if(antTrails.ant2.length > 19) 
+      antTrails.ant2.shift();
+    
+    antTrails.ant2.push({ x:x, y:y });      
+    break;
+  case 3:
+        if(antTrails.ant3.length > 19) 
+      antTrails.ant3.shift();
+    
+    antTrails.ant3.push({ x:x, y:y });      
+    break;
+  case 10:
+        if(antTrails.ant10.length > 19) 
+      antTrails.ant10.shift();
+    
+    antTrails.ant10.push({ x:x, y:y });      
+    break;
+  case 33:
+        if(antTrails.ant33.length > 19) 
+      antTrails.ant33.shift();
+    
+    antTrails.ant33.push({ x:x, y:y });      
+    break;
+  case 37:
+        if(antTrails.ant37.length > 19) 
+      antTrails.ant37.shift();
+    
+    antTrails.ant37.push({ x:x, y:y });      
+    break;
+  case 42:
+        if(antTrails.ant42.length > 19) 
+      antTrails.ant42.shift();
+    
+    antTrails.ant42.push({ x:x, y:y });      
+    break;
+  case 45:
+        if(antTrails.ant45.length > 19) 
+      antTrails.ant45.shift();
+    
+    antTrails.ant45.push({ x:x, y:y });      
+    break;
+  }
 }
